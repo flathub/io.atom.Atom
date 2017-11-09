@@ -1,0 +1,105 @@
+{
+  "app-id": "io.atom.Atom",
+  "branch": "stable",
+  "base": "io.atom.electron.BaseApp",
+  "base-version": "stable",
+  "runtime": "org.freedesktop.Sdk",
+  "runtime-version": "1.6",
+  "sdk": "org.freedesktop.Sdk",
+  "command": "atom",
+  "rename-desktop-file": "atom.desktop",
+  "rename-icon": "atom",
+  "separate-locales": false,
+  "finish-args": [
+      "--share=ipc", "--socket=x11",
+      "--socket=pulseaudio",
+      "--share=network",
+      "--device=dri",
+      "--filesystem=host",
+      "--talk-name=org.freedesktop.Notifications",
+      "--talk-name=org.freedesktop.secrets"
+    ],
+  "modules": [
+    "pyls.json",
+    {
+      "name": "atom",
+      "buildsystem": "simple",
+      "build-commands": [
+        "ar x atom-amd64.deb",
+        "tar -xf data.tar.xz",
+        "cp -r usr/* /app",
+
+        "mv /app/bin/atom /app/bin/atom-real",
+        "install atom /app/bin",
+
+        "mkdir -p /app/share/icons/hicolor/512x512/apps",
+        "mv /app/share/pixmaps/atom.png /app/share/icons/hicolor/512x512/apps",
+
+        "desktop-file-edit --set-key=Exec --set-value='atom %F' /app/share/applications/atom.desktop"
+      ],
+      "cleanup": [
+        "/share/lintian",
+        "/share/pixmaps"
+      ],
+      "sources": [
+        {
+          "type": "file",
+          "url": "https://atom-installer.github.com/v1.22.0/atom-amd64.deb",
+          "sha256": "f388662f5d6c2fbfba83f21a5a250770e40a1c129997835c703a2a074305bccb"
+        },
+        {
+          "type": "file",
+          "path": "io.atom.Atom.appdata.xml"
+        },
+        {
+          "type": "script",
+          "dest-filename": "atom",
+          "commands": [
+            "exec env ATOM_HOME=\"$XDG_DATA_HOME\" /app/bin/atom-real \"$@\""
+          ]
+        }
+      ],
+      "modules": [
+        {
+            "name": "libsecret",
+            "config-opts": [
+                "--disable-manpages",
+                "--disable-gtk-doc",
+                "--disable-static",
+                "--disable-introspection"
+            ],
+            "cleanup": [
+                "/bin",
+                "/include",
+                "/lib/pkgconfig",
+                "/share/gtk-doc",
+                "*.la"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "http://ftp.gnome.org/pub/GNOME/sources/libsecret/0.18/libsecret-0.18.5.tar.xz",
+                    "sha256": "9ce7bd8dd5831f2786c935d82638ac428fa085057cc6780aba0e39375887ccb3"
+                },
+                {
+                    "type": "shell",
+                    "commands": ["autoreconf -f"]
+                }
+            ]
+        },
+        {
+          "name": "xkbfile",
+          "cleanup": ["/include", "/lib/*.la", "/lib/pkgconfig"],
+          "config-opts": ["--disable-static"],
+          "sources": [
+            {
+              "type": "archive",
+              "url": "https://www.x.org/releases/individual/lib/libxkbfile-1.0.9.tar.bz2",
+              "sha256": "51817e0530961975d9513b773960b4edd275f7d5c72293d5a151ed4f42aeb16a"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
