@@ -17,7 +17,10 @@
       "--device=dri",
       "--filesystem=host",
       "--talk-name=org.freedesktop.Notifications",
-      "--talk-name=org.freedesktop.secrets"
+      "--talk-name=org.freedesktop.secrets",
+      /* Don't use kde trash, always force gvfs-trash
+         See platform_util_linux.cc in electron */
+      "--env=ELECTRON_TRASH=something"
     ],
   "modules": [
     "pyls.json",
