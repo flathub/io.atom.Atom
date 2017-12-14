@@ -18,9 +18,9 @@
       "--filesystem=host",
       "--talk-name=org.freedesktop.Notifications",
       "--talk-name=org.freedesktop.secrets",
-      /* Don't use kde trash, always force gvfs-trash
-         See platform_util_linux.cc in electron */
-      "--env=ELECTRON_TRASH=something"
+      "--talk-name=org.gtk.vfs",
+      "--talk-name=org.gtk.vfs.*",
+      "--env=ELECTRON_TRASH=gio"
     ],
   "modules": [
     "pyls.json",
@@ -49,8 +49,8 @@
       "sources": [
         {
           "type": "file",
-          "url": "https://atom-installer.github.com/v1.22.0/atom-amd64.deb",
-          "sha256": "f388662f5d6c2fbfba83f21a5a250770e40a1c129997835c703a2a074305bccb"
+          "url": "https://atom-installer.github.com/v1.23.1/atom-amd64.deb",
+          "sha256": "8e6cb0b8ae0bb71040e1eae8d6cf20268cea43c6f63ba8906413e6ce10799c91"
         },
         {
           "type": "file",
