@@ -35,6 +35,9 @@
         "mv /app/bin/atom /app/bin/atom-real",
         "install atom /app/bin",
 
+        "mv /app/bin/apm /app/bin/apm-real",
+        "install apm /app/bin",
+
         "mkdir -p /app/share/icons/hicolor/512x512/apps",
         "mv /app/share/pixmaps/atom.png /app/share/icons/hicolor/512x512/apps",
 
@@ -61,6 +64,13 @@
           "dest-filename": "atom",
           "commands": [
             "exec env ATOM_HOME=\"$XDG_DATA_HOME\" /app/bin/atom-real \"$@\""
+          ]
+        },
+        {
+          "type": "script",
+          "dest-filename": "apm",
+          "commands": [
+            "exec env ATOM_HOME=\"$XDG_DATA_HOME\" /app/bin/apm-real \"$@\""
           ]
         }
       ],
