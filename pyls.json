@@ -69,8 +69,8 @@
       "sources": [
         {
           "type": "archive",
-          "url": "https://github.com/palantir/python-language-server/archive/0.11.1.tar.gz",
-          "sha256": "df27f7112327f671e7679ab8cd3ec29e718f7c80fc49c3d595520525f0186d0f"
+          "url": "https://github.com/palantir/python-language-server/archive/0.12.1.tar.gz",
+          "sha256": "b253583894ada6c37862778091f2634f5aba00851909f7bef6b940780bfbd9ca"
         }
       ],
       "modules": [
