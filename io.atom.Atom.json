@@ -43,7 +43,9 @@
 
         "desktop-file-edit --set-key=Exec --set-value='atom %F' /app/share/applications/atom.desktop",
 
-        "install -Dm644 io.atom.Atom.appdata.xml /app/share/appdata/io.atom.Atom.appdata.xml"
+        "install -Dm644 io.atom.Atom.appdata.xml /app/share/appdata/io.atom.Atom.appdata.xml",
+
+        "install pip3 /app/bin"
       ],
       "cleanup": [
         "/share/lintian",
@@ -70,7 +72,18 @@
           "type": "script",
           "dest-filename": "apm",
           "commands": [
-            "exec env ATOM_HOME=\"$XDG_DATA_HOME\" /app/bin/apm-real \"$@\""
+            "export ATOM_HOME=\"$XDG_DATA_HOME\"",
+            "export PYTHONUSERBASE=\"$XDG_DATA_HOME/python\"",
+            "export PATH=\"$XDG_DATA_HOME/python/bin\":$PATH",
+            "exec /app/bin/apm-real \"$@\""
+          ]
+        },
+        {
+          "type": "script",
+          "dest-filename": "pip3",
+          "commands": [
+            "export PYTHONUSERBASE=\"$XDG_DATA_HOME/python\"",
+            "exec /usr/bin/pip3 \"$@\""
           ]
         }
       ],
