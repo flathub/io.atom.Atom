@@ -23,7 +23,6 @@
       "--env=ELECTRON_TRASH=gio"
     ],
   "modules": [
-    "pyls.json",
     {
       "name": "atom",
       "buildsystem": "simple",
@@ -54,8 +53,8 @@
       "sources": [
         {
           "type": "file",
-          "url": "https://atom-installer.github.com/v1.23.2/atom-amd64.deb",
-          "sha256": "f04c73daeb13d144957e7ecd237b6d8177d787e0259ed210cbb247807cb55013"
+          "url": "https://atom-installer.github.com/v1.24.0/atom-amd64.deb",
+          "sha256": "eecf9e255bb57455a974db1823831860b036797879bb01cb39ca1f3729f97cfb"
         },
         {
           "type": "file",
@@ -65,7 +64,10 @@
           "type": "script",
           "dest-filename": "atom",
           "commands": [
-            "exec env ATOM_HOME=\"$XDG_DATA_HOME\" /app/bin/atom-real \"$@\""
+            "export ATOM_HOME=\"$XDG_DATA_HOME\"",
+            "export PYTHONUSERBASE=\"$XDG_DATA_HOME/python\"",
+            "export PATH=\"$XDG_DATA_HOME/python/bin\":$PATH",
+            "exec /app/bin/atom-real \"$@\""
           ]
         },
         {
