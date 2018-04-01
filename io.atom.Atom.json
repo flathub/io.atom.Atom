@@ -20,7 +20,7 @@
       "--talk-name=org.freedesktop.secrets",
       "--talk-name=org.gtk.vfs",
       "--talk-name=org.gtk.vfs.*",
-      "--env=ELECTRON_TRASH=gio"
+      "--env=ELECTRON_TRASH=this-is-a-workaround"
     ],
   "modules": [
     {
@@ -66,7 +66,7 @@
           "commands": [
             "export ATOM_HOME=\"$XDG_DATA_HOME\"",
             "export PYTHONUSERBASE=\"$XDG_DATA_HOME/python\"",
-            "export PATH=\"$XDG_DATA_HOME/python/bin\":$PATH",
+            "export PATH=\"$XDG_DATA_HOME/python/bin:$PATH\"",
             "exec /app/bin/atom-real \"$@\""
           ]
         },
@@ -76,7 +76,7 @@
           "commands": [
             "export ATOM_HOME=\"$XDG_DATA_HOME\"",
             "export PYTHONUSERBASE=\"$XDG_DATA_HOME/python\"",
-            "export PATH=\"$XDG_DATA_HOME/python/bin\":$PATH",
+            "export PATH=\"$XDG_DATA_HOME/python/bin:$PATH\"",
             "exec /app/bin/apm-real \"$@\""
           ]
         },
