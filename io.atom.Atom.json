@@ -21,7 +21,17 @@
       "--talk-name=org.gtk.vfs",
       "--talk-name=org.gtk.vfs.*",
       "--env=ELECTRON_TRASH=this-is-a-workaround"
-    ],
+  ],
+  "add-extensions": {
+    "io.atom.Atom.Extension": {
+      "version": "1.6",
+      "directory": "extensions",
+      "add-ld-path": "lib",
+      "subdirectories": true,
+      "no-autodownload": true,
+      "autodelete": true
+    }
+  },
   "modules": [
     {
       "name": "atom",
