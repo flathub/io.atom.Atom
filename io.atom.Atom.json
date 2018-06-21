@@ -1,7 +1,7 @@
 {
   "app-id": "io.atom.Atom",
   "branch": "stable",
-  "base": "io.atom.electron.BaseApp",
+  "base": "org.electronjs.Electron2.BaseApp",
   "base-version": "stable",
   "runtime": "org.freedesktop.Sdk",
   "runtime-version": "1.6",
@@ -63,8 +63,8 @@
       "sources": [
         {
           "type": "file",
-          "url": "https://atom-installer.github.com/v1.27.2/atom-amd64.deb",
-          "sha256": "5bfcf50d9fd3f9a79df8011df2591caa538595531acfdf651588692548d83177"
+          "url": "https://atom-installer.github.com/v1.28.0/atom-amd64.deb",
+          "sha256": "f0bc60f651f3a27a525da936d70b1a45eaf32d3adc543caf4f0b9f844c18094c"
         },
         {
           "type": "file",
@@ -126,18 +126,6 @@
                     "commands": ["autoreconf -f"]
                 }
             ]
-        },
-        {
-          "name": "xkbfile",
-          "cleanup": ["/include", "/lib/*.la", "/lib/pkgconfig"],
-          "config-opts": ["--disable-static"],
-          "sources": [
-            {
-              "type": "archive",
-              "url": "https://www.x.org/releases/individual/lib/libxkbfile-1.0.9.tar.bz2",
-              "sha256": "51817e0530961975d9513b773960b4edd275f7d5c72293d5a151ed4f42aeb16a"
-            }
-          ]
         }
       ]
     }
