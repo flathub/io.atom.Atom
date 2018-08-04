@@ -16,6 +16,7 @@
       "--share=network",
       "--device=all",
       "--filesystem=host",
+      "--talk-name=org.freedesktop.Flatpak",
       "--talk-name=org.freedesktop.Notifications",
       "--talk-name=org.freedesktop.secrets",
       "--talk-name=org.gtk.vfs",
