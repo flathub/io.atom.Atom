@@ -2,9 +2,9 @@
   "app-id": "io.atom.Atom",
   "branch": "stable",
   "base": "org.electronjs.Electron2.BaseApp",
-  "base-version": "stable",
+  "base-version": "18.08",
   "runtime": "org.freedesktop.Sdk",
-  "runtime-version": "1.6",
+  "runtime-version": "18.08",
   "sdk": "org.freedesktop.Sdk",
   "command": "atom",
   "rename-desktop-file": "atom.desktop",
@@ -25,7 +25,7 @@
   ],
   "add-extensions": {
     "io.atom.Atom.Extension": {
-      "version": "1.6",
+      "version": "18.08",
       "directory": "extensions",
       "add-ld-path": "lib",
       "subdirectories": true,
