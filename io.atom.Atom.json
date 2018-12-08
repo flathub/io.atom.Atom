@@ -22,7 +22,10 @@
       "--talk-name=org.freedesktop.secrets",
       "--talk-name=org.gtk.vfs",
       "--talk-name=org.gtk.vfs.*",
-      "--env=ELECTRON_TRASH=this-is-a-workaround"
+      "--env=ELECTRON_TRASH=this-is-a-workaround",
+      "--filesystem=xdg-config/kdeglobals:ro",
+      "--talk-name=com.canonical.AppMenu.Registrar",
+      "--talk-name=com.canonical.AppMenu.Registrar.*"
   ],
   "add-extensions": {
     "io.atom.Atom.Extension": {
