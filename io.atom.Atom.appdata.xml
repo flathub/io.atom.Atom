@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop">
-  <id>io.atom.Atom.desktop</id>
+  <id>io.atom.Atom</id>
   <name>Atom</name>
-  <developer_name>Github</developer_name>
+  <developer_name>GitHub</developer_name>
   <summary>A hackable text editor for the 21st Century</summary>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>MIT</project_license>
   <url type="homepage">https://atom.io</url>
+  <url type="help">https://atom.io/docs</url>
+  <url type="faq">https://atom.io/faq</url>
+  <url type="bugtracker">https://github.com/atom/atom/issues</url>
+  <launchable type="desktop-id">io.atom.Atom.desktop</launchable>
   <description>
     <p>Atom is a text editor that's modern, approachable, yet hackable to the core—a tool you can customize to do anything but also use productively without ever touching a config file.</p>
   </description>
@@ -14,13 +18,16 @@
     <screenshot>
       <image type="source">https://github-atom-io-herokuapp-com.global.ssl.fastly.net/assets/screenshot-main-04d5696e786a54803aa385acbc7c9ba3.png</image>
     </screenshot>
-    <screenshot>
+    <screenshot type="default">
       <image type="source">https://upload.wikimedia.org/wikipedia/commons/7/7c/Screenshot_of_Atom_editor.png</image>
     </screenshot>
   </screenshots>
   <releases>
     <release version="1.33.0" date="2018-11-28"/>
   </releases>
+  <content_rating type="oars-1.1">
+    <content_attribute id="social-chat">moderate</content_attribute>
+  </content_rating>
   <kudos>
     <kudo>HiDpiIcon</kudo>
   </kudos>
