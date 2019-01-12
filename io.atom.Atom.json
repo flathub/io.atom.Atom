@@ -52,8 +52,8 @@
         "mv /app/bin/apm /app/bin/apm-real",
         "install apm /app/bin",
 
-        "mkdir -p /app/share/icons/hicolor/512x512/apps",
-        "mv /app/share/pixmaps/atom.png /app/share/icons/hicolor/512x512/apps",
+        "mkdir -p /app/share/icons/hicolor/1024x1024/apps",
+        "mv /app/share/pixmaps/atom.png /app/share/icons/hicolor/1024x1024/apps",
 
         "desktop-file-edit --set-key=Exec --set-value='atom %F' /app/share/applications/atom.desktop",
 
