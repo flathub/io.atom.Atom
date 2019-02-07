@@ -39,6 +39,19 @@
   },
   "modules": [
     {
+      "name": "imagemagick",
+      "sources": [
+        {
+          "type": "archive",
+          "url": "https://www.imagemagick.org/download/releases/ImageMagick-7.0.6-10.tar.xz",
+          "sha256": "5a9889c87dc351cf4b57ca3ae418c9cdcefc77aaa9a3b16044ae8a4eecf3aeed"
+        }
+      ],
+      "cleanup": [
+        "*"
+      ]
+    },
+    {
       "name": "atom",
       "buildsystem": "simple",
       "build-commands": [
