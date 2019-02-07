@@ -53,7 +53,13 @@
         "install apm /app/bin",
 
         "mkdir -p /app/share/icons/hicolor/512x512/apps",
-        "mv /app/share/pixmaps/atom.png /app/share/icons/hicolor/512x512/apps",
+        "convert -resize 512x /app/share/pixmaps/atom.png /app/share/icons/hicolor/512x512/apps/atom.png",
+        "mkdir -p /app/share/icons/hicolor/128x128/apps",
+        "convert -resize 128x /app/share/pixmaps/atom.png /app/share/icons/hicolor/128x128/apps/atom.png",
+        "mkdir -p /app/share/icons/hicolor/64x64/apps",
+        "convert -resize 64x /app/share/pixmaps/atom.png /app/share/icons/hicolor/64x64/apps/atom.png",
+
+        "rm /app/share/pixmaps/atom.png",
 
         "desktop-file-edit --set-key=Exec --set-value='atom %F' /app/share/applications/atom.desktop",
 
