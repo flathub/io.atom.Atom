@@ -39,19 +39,6 @@
   },
   "modules": [
     {
-      "name": "imagemagick",
-      "sources": [
-        {
-          "type": "archive",
-          "url": "https://www.imagemagick.org/download/releases/ImageMagick-7.0.6-10.tar.xz",
-          "sha256": "5a9889c87dc351cf4b57ca3ae418c9cdcefc77aaa9a3b16044ae8a4eecf3aeed"
-        }
-      ],
-      "cleanup": [
-        "*"
-      ]
-    },
-    {
       "name": "atom",
       "buildsystem": "simple",
       "build-commands": [
@@ -65,14 +52,11 @@
         "mv /app/bin/apm /app/bin/apm-real",
         "install apm /app/bin",
 
-        "mkdir -p /app/share/icons/hicolor/512x512/apps",
-        "convert -resize 512x /app/share/pixmaps/atom.png /app/share/icons/hicolor/512x512/apps/atom.png",
-        "mkdir -p /app/share/icons/hicolor/128x128/apps",
-        "convert -resize 128x /app/share/pixmaps/atom.png /app/share/icons/hicolor/128x128/apps/atom.png",
-        "mkdir -p /app/share/icons/hicolor/64x64/apps",
-        "convert -resize 64x /app/share/pixmaps/atom.png /app/share/icons/hicolor/64x64/apps/atom.png",
-
-        "rm /app/share/pixmaps/atom.png",
+        "for i in `echo 16 22 32 48 64 128 256 512`;
+            do
+                mkdir -p /app/share/icons/hicolor/${i}x${i}/apps
+                rsvg-convert -w $i icon.svg > /app/share/icons/hicolor/${i}x${i}/apps/atom.png
+            done",
 
         "desktop-file-edit --set-key=Exec --set-value='atom %F' /app/share/applications/atom.desktop",
 
@@ -89,6 +73,12 @@
           "type": "file",
           "url": "https://atom-installer.github.com/v1.34.0/atom-amd64.deb",
           "sha256": "6bd2df54344c7e4a058f6571f63ba32c732e393b33b3eccefb711096ab97199a"
+        },
+        {
+          "type": "file",
+          "dest-filename": "icon.svg",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Icon_Atom.svg",
+          "sha256": "f0dbcc1d56e25831596ad2bdd0a43c6f56a1a95449628adc6e8683472eeaf572"
         },
         {
           "type": "file",
