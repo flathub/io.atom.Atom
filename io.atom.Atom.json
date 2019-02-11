@@ -52,12 +52,6 @@
         "mv /app/bin/apm /app/bin/apm-real",
         "install apm /app/bin",
 
-        "for i in `echo 16 22 32 48 64 128 256 512`;
-            do
-                mkdir -p /app/share/icons/hicolor/${i}x${i}/apps
-                rsvg-convert -w $i icon.svg > /app/share/icons/hicolor/${i}x${i}/apps/atom.png
-            done",
-
         "desktop-file-edit --set-key=Exec --set-value='atom %F' /app/share/applications/atom.desktop",
 
         "install -Dm644 io.atom.Atom.appdata.xml /app/share/appdata/io.atom.Atom.appdata.xml",
@@ -73,12 +67,6 @@
           "type": "file",
           "url": "https://atom-installer.github.com/v1.34.0/atom-amd64.deb",
           "sha256": "6bd2df54344c7e4a058f6571f63ba32c732e393b33b3eccefb711096ab97199a"
-        },
-        {
-          "type": "file",
-          "dest-filename": "icon.svg",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Icon_Atom.svg",
-          "sha256": "f0dbcc1d56e25831596ad2bdd0a43c6f56a1a95449628adc6e8683472eeaf572"
         },
         {
           "type": "file",
@@ -141,6 +129,20 @@
                 }
             ]
         }
+      ]
+    },
+    {
+      "name": "icons",
+      "buildsystem": "simple",
+      "build-commands": [
+        "mv share/icons /app/share/"
+      ],
+      "sources": [
+          {
+              "type": "archive",
+              "url": "https://atom-installer.github.com/v1.34.0/atom.x86_64.rpm",
+              "sha256": "7eae41bf51057f2dc0360dc0059e2a680fc0f6ca1c2abc2fd3666d7ca3f50c65"
+          }
       ]
     }
   ]
