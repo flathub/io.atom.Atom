@@ -137,6 +137,9 @@
       "build-commands": [
         "mv share/icons /app/share/"
       ],
+      "cleanup": [
+        "/app/share/icons/hicolor/1024x1024"
+      ],
       "sources": [
           {
               "type": "archive",
