@@ -135,14 +135,13 @@
       "name": "icons",
       "buildsystem": "simple",
       "build-commands": [
-        "mv share/icons /app/share/",
-        "rm -rf /app/share/icons/hicolor/1024x1024"
+        "cp -r ../icons /app/share/"
       ],
       "sources": [
           {
               "type": "archive",
-              "url": "https://atom-installer.github.com/v1.34.0/atom.x86_64.rpm",
-              "sha256": "7eae41bf51057f2dc0360dc0059e2a680fc0f6ca1c2abc2fd3666d7ca3f50c65"
+              "path": "icons.tar.xz",
+              "sha256": "ce2426a44b39118e31b293c2f4939e348743ab20fa53081f4895eac23d4d2dce"
           }
       ]
     }
