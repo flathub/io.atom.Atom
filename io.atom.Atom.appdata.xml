@@ -12,16 +12,17 @@
   </description>
   <screenshots>
     <screenshot>
-      <image type="source">https://github-atom-io-herokuapp-com.global.ssl.fastly.net/assets/screenshot-main-04d5696e786a54803aa385acbc7c9ba3.png</image>
+      <image type="source">https://upload.wikimedia.org/wikipedia/commons/6/64/Atom-editor.png</image>
     </screenshot>
     <screenshot>
       <image type="source">https://upload.wikimedia.org/wikipedia/commons/7/7c/Screenshot_of_Atom_editor.png</image>
     </screenshot>
   </screenshots>
   <releases>
-    <release version="1.36.1" date="2019-04-25"/>
+    <release version="1.37.0" date="2019-05-12"/>
   </releases>
   <kudos>
     <kudo>HiDpiIcon</kudo>
   </kudos>
+  <content_rating type="oars-1.0" />
 </component>
