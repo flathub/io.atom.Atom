@@ -23,6 +23,7 @@
       "--talk-name=org.gtk.vfs",
       "--talk-name=org.gtk.vfs.*",
       "--env=ELECTRON_TRASH=this-is-a-workaround",
+      "--env=TMPDIR=/var/tmp",
       "--filesystem=xdg-config/kdeglobals:ro",
       "--talk-name=com.canonical.AppMenu.Registrar",
       "--talk-name=com.canonical.AppMenu.Registrar.*"
