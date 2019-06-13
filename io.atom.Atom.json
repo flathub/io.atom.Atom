@@ -148,6 +148,7 @@
     },
     {
         "name": "xprop",
+        "cleanup": ["/share/man"],
         "sources": [
             {
                 "type": "archive",
