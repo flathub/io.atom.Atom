@@ -145,6 +145,17 @@
               "sha256": "ce2426a44b39118e31b293c2f4939e348743ab20fa53081f4895eac23d4d2dce"
           }
       ]
+    },
+    {
+        "name": "xprop",
+        "cleanup": ["/share/man"],
+        "sources": [
+            {
+                "type": "archive",
+                "url": "https://xorg.freedesktop.org/archive/individual/app/xprop-1.2.3.tar.bz2",
+                "sha256": "d22afb28c86d85fff10a50156a7d0fa930c80ae865d70b26d805fd28a17a521b"
+            }
+        ]
     }
   ]
 }
