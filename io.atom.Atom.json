@@ -57,7 +57,9 @@
 
         "install -Dm644 io.atom.Atom.appdata.xml /app/share/appdata/io.atom.Atom.appdata.xml",
 
-        "install pip3 /app/bin"
+        "install pip3 /app/bin",
+        
+        "mkdir -p /app/extensions"
       ],
       "cleanup": [
         "/share/lintian",
