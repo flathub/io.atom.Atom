@@ -68,8 +68,8 @@
       "sources": [
         {
           "type": "file",
-          "url": "https://atom-installer.github.com/v1.40.0/atom-amd64.deb",
-          "sha256": "74b071ba5560c86d8446aba56d5bc50004ff0b63aef40a4941b85aa32471c654"
+          "url": "https://atom-installer.github.com/v1.40.1/atom-amd64.deb",
+          "sha256": "0d4921cf1c101d61e7c812984ef432fd2829fea2ea9b08b598f809f14222f543"
         },
         {
           "type": "file",
