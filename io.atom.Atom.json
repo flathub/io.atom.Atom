@@ -58,7 +58,7 @@
         "install -Dm644 io.atom.Atom.appdata.xml /app/share/appdata/io.atom.Atom.appdata.xml",
 
         "install pip3 /app/bin",
-        
+
         "mkdir -p /app/extensions"
       ],
       "cleanup": [
@@ -105,33 +105,7 @@
         }
       ],
       "modules": [
-        {
-            "name": "libsecret",
-            "config-opts": [
-                "--disable-manpages",
-                "--disable-gtk-doc",
-                "--disable-static",
-                "--disable-introspection"
-            ],
-            "cleanup": [
-                "/bin",
-                "/include",
-                "/lib/pkgconfig",
-                "/share/gtk-doc",
-                "*.la"
-            ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "http://ftp.gnome.org/pub/GNOME/sources/libsecret/0.18/libsecret-0.18.8.tar.xz",
-                    "sha256": "3bfa889d260e0dbabcf5b9967f2aae12edcd2ddc9adc365de7a5cc840c311d15"
-                },
-                {
-                    "type": "shell",
-                    "commands": ["autoreconf -f"]
-                }
-            ]
-        }
+        "shared-modules/libsecret/libsecret.json"
       ]
     },
     {
