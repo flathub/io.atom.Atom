@@ -68,8 +68,8 @@
       "sources": [
         {
           "type": "file",
-          "url": "https://atom-installer.github.com/v1.45.0/atom-amd64.deb",
-          "sha256": "04a80193cd3ded01c3a89d0e7b0a030b4f5f5c5e2f461a327e006ea8daf3f5e1"
+          "url": "https://atom-installer.github.com/v1.47.0/atom-amd64.deb",
+          "sha256": "500117c2da4b6a2a0d1342559777c921e577aec216ecad2c04b5d800b7d460b3"
         },
         {
           "type": "file",
@@ -82,7 +82,7 @@
             "export ATOM_HOME=\"$XDG_DATA_HOME\"",
             "export PYTHONUSERBASE=\"$XDG_DATA_HOME/python\"",
             "export PATH=\"$XDG_DATA_HOME/python/bin:$PATH\"",
-            "exec /app/bin/atom-real \"$@\""
+            "exec /app/bin/zypak-wrapper /app/bin/atom-real \"$@\""
           ]
         },
         {
