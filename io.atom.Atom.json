@@ -132,6 +132,16 @@
                 "sha256": "d22afb28c86d85fff10a50156a7d0fa930c80ae865d70b26d805fd28a17a521b"
             }
         ]
+    },
+    {
+        "name": "zypak",
+        "sources": [
+            {
+                "type": "git",
+                "url": "https://github.com/refi64/zypak",
+                "tag": "v2020.02"
+            }
+        ]
     }
   ]
 }
