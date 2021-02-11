@@ -48,7 +48,6 @@
         "cp -r usr/* /app",
 
         "mv /app/bin/atom /app/bin/atom-real",
-        "sed -i -e 's/\\-x\\ /\\-x\\ \\/app\\/bin\\/zypak\\-wrapper\\ /g' /app/bin/atom-real",
         "install atom /app/bin",
 
         "mv /app/bin/apm /app/bin/apm-real",
@@ -83,7 +82,7 @@
             "export ATOM_HOME=\"$XDG_DATA_HOME\"",
             "export PYTHONUSERBASE=\"$XDG_DATA_HOME/python\"",
             "export PATH=\"$XDG_DATA_HOME/python/bin:$PATH\"",
-            "exec /app/bin/atom-real \"$@\""
+            "exec /app/bin/zypak-wrapper /app/share/atom/atom \"$@\""
           ]
         },
         {
