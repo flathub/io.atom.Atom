@@ -48,7 +48,7 @@
         "cp -r usr/* /app",
 
         "mv /app/bin/atom /app/bin/atom-real",
-        "sed -i -e 's/\-x\ /\-x\ \/app\/bin\/zypak\-wrapper\ /g' /app/bin/atom-real"
+        "sed -i -e 's/\-x\ /\-x\ \/app\/bin\/zypak\-wrapper\ /g' /app/bin/atom-real",
         "install atom /app/bin",
 
         "mv /app/bin/apm /app/bin/apm-real",
