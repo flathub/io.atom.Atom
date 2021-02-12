@@ -82,7 +82,7 @@
             "export ATOM_HOME=\"$XDG_DATA_HOME\"",
             "export PYTHONUSERBASE=\"$XDG_DATA_HOME/python\"",
             "export PATH=\"$XDG_DATA_HOME/python/bin:$PATH\"",
-            "exec /app/bin/zypak-wrapper /app/share/atom/atom \"$@\""
+            "exec /app/bin/zypak-wrapper /app/bin/atom-real \"$@\""
           ]
         },
         {
@@ -130,6 +130,16 @@
                 "type": "archive",
                 "url": "https://xorg.freedesktop.org/archive/individual/app/xprop-1.2.3.tar.bz2",
                 "sha256": "d22afb28c86d85fff10a50156a7d0fa930c80ae865d70b26d805fd28a17a521b"
+            }
+        ]
+    },
+    {
+        "name": "zypak",
+        "sources": [
+            {
+                "type": "git",
+                "url": "https://github.com/refi64/zypak",
+                "tag": "v2020.02"
             }
         ]
     }
