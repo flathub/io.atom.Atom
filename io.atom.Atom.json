@@ -69,7 +69,12 @@
         {
           "type": "file",
           "url": "https://atom-installer.github.com/v1.57.0/atom-amd64.deb",
-          "sha256": "c418210ba30c270db33e7e19fbd83da32311dab0abe82dff1b174d49d596fdcb"
+          "sha256": "c418210ba30c270db33e7e19fbd83da32311dab0abe82dff1b174d49d596fdcb",
+          "x-checker-data": {
+            "type": "rotating-url",
+            "url": "https://atom.io/download/deb",
+            "pattern": "https://atom-installer.github.com/v([0-9.]+)/atom-amd64.deb"
+          }
         },
         {
           "type": "file",
@@ -128,8 +133,13 @@
         "sources": [
             {
                 "type": "archive",
-                "url": "https://xorg.freedesktop.org/archive/individual/app/xprop-1.2.3.tar.bz2",
-                "sha256": "d22afb28c86d85fff10a50156a7d0fa930c80ae865d70b26d805fd28a17a521b"
+                "url": "https://xorg.freedesktop.org/archive/individual/app/xprop-1.2.5.tar.bz2",
+                "sha256": "9b92ed0316bf2486121d8bac88bd1878f16b43bd335f18009b1f941f1eca93a1",
+                "x-checker-data": {
+                  "type": "anitya",
+                  "project-id": "14958",
+                  "url-template": "https://xorg.freedesktop.org/archive/individual/app/xprop-$version.tar.bz2"
+                }
             }
         ]
     },
