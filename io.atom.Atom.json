@@ -48,6 +48,7 @@
         "cp -r usr/* /app",
 
         "mv /app/bin/atom /app/bin/atom-real",
+        "sed -i -e 's/\\-x/\\/app\\/bin\\/zypak-wrapper/' /app/bin/atom-real",
         "install atom /app/bin",
 
         "mv /app/bin/apm /app/bin/apm-real",
@@ -87,7 +88,7 @@
             "export ATOM_HOME=\"$XDG_DATA_HOME\"",
             "export PYTHONUSERBASE=\"$XDG_DATA_HOME/python\"",
             "export PATH=\"$XDG_DATA_HOME/python/bin:$PATH\"",
-            "exec /app/bin/zypak-wrapper /app/bin/atom-real \"$@\""
+            "exec /app/bin/atom-real \"$@\""
           ]
         },
         {
@@ -140,16 +141,6 @@
                   "project-id": "14958",
                   "url-template": "https://xorg.freedesktop.org/archive/individual/app/xprop-$version.tar.bz2"
                 }
-            }
-        ]
-    },
-    {
-        "name": "zypak",
-        "sources": [
-            {
-                "type": "git",
-                "url": "https://github.com/refi64/zypak",
-                "tag": "v2020.02"
             }
         ]
     }
