@@ -1,157 +1,154 @@
 {
-  "app-id": "io.atom.Atom",
-  "branch": "stable",
-  "base": "org.electronjs.Electron2.BaseApp",
-  "base-version": "20.08",
-  "runtime": "org.freedesktop.Sdk",
-  "runtime-version": "20.08",
-  "sdk": "org.freedesktop.Sdk",
-  "command": "atom",
-  "rename-desktop-file": "atom.desktop",
-  "rename-icon": "atom",
-  "separate-locales": false,
-  "finish-args": [
-      "--share=ipc", "--socket=x11",
-      "--socket=pulseaudio",
-      "--socket=ssh-auth",
-      "--share=network",
-      "--device=all",
-      "--filesystem=host",
-      "--talk-name=org.freedesktop.Flatpak",
-      "--talk-name=org.freedesktop.Notifications",
-      "--talk-name=org.freedesktop.secrets",
-      "--talk-name=org.gtk.vfs",
-      "--talk-name=org.gtk.vfs.*",
-      "--env=ELECTRON_TRASH=this-is-a-workaround",
-      "--env=TMPDIR=/var/tmp",
-      "--filesystem=xdg-config/kdeglobals:ro",
-      "--talk-name=com.canonical.AppMenu.Registrar",
-      "--talk-name=com.canonical.AppMenu.Registrar.*"
-  ],
-  "add-extensions": {
-    "io.atom.Atom.Extension": {
-      "version": "20.08",
-      "directory": "extensions",
-      "add-ld-path": "lib",
-      "subdirectories": true,
-      "no-autodownload": true,
-      "autodelete": true
-    }
-  },
-  "modules": [
-    {
-      "name": "atom",
-      "buildsystem": "simple",
-      "build-commands": [
-        "ar x atom-amd64.deb",
-        "tar -xf data.tar.xz",
-        "cp -r usr/* /app",
-
-        "mv /app/bin/atom /app/bin/atom-real",
-        "install atom /app/bin",
-
-        "mv /app/bin/apm /app/bin/apm-real",
-        "install apm /app/bin",
-
-        "desktop-file-edit --set-key=Exec --set-value='atom %F' /app/share/applications/atom.desktop",
-
-        "install -Dm644 io.atom.Atom.appdata.xml /app/share/appdata/io.atom.Atom.appdata.xml",
-
-        "install pip3 /app/bin",
-
-        "mkdir -p /app/extensions"
-      ],
-      "cleanup": [
-        "/share/lintian",
-        "/share/pixmaps"
-      ],
-      "sources": [
-        {
-          "type": "file",
-          "url": "https://atom-installer.github.com/v1.57.0/atom-amd64.deb",
-          "sha256": "c418210ba30c270db33e7e19fbd83da32311dab0abe82dff1b174d49d596fdcb",
-          "x-checker-data": {
-            "type": "rotating-url",
-            "url": "https://atom.io/download/deb",
-            "pattern": "https://atom-installer.github.com/v([0-9.]+)/atom-amd64.deb"
-          }
-        },
-        {
-          "type": "file",
-          "path": "io.atom.Atom.appdata.xml"
-        },
-        {
-          "type": "script",
-          "dest-filename": "atom",
-          "commands": [
-            "export ATOM_HOME=\"$XDG_DATA_HOME\"",
-            "export PYTHONUSERBASE=\"$XDG_DATA_HOME/python\"",
-            "export PATH=\"$XDG_DATA_HOME/python/bin:$PATH\"",
-            "exec /app/bin/zypak-wrapper /app/bin/atom-real \"$@\""
-          ]
-        },
-        {
-          "type": "script",
-          "dest-filename": "apm",
-          "commands": [
-            "export ATOM_HOME=\"$XDG_DATA_HOME\"",
-            "export PYTHONUSERBASE=\"$XDG_DATA_HOME/python\"",
-            "export PATH=\"$XDG_DATA_HOME/python/bin:$PATH\"",
-            "exec /app/bin/apm-real \"$@\""
-          ]
-        },
-        {
-          "type": "script",
-          "dest-filename": "pip3",
-          "commands": [
-            "export PYTHONUSERBASE=\"$XDG_DATA_HOME/python\"",
-            "exec /usr/bin/pip3 \"$@\""
-          ]
+    "app-id": "io.atom.Atom",
+    "branch": "stable",
+    "base": "org.electronjs.Electron2.BaseApp",
+    "base-version": "20.08",
+    "runtime": "org.freedesktop.Sdk",
+    "runtime-version": "20.08",
+    "sdk": "org.freedesktop.Sdk",
+    "command": "atom",
+    "rename-desktop-file": "atom.desktop",
+    "rename-icon": "atom",
+    "separate-locales": false,
+    "finish-args": [
+        "--share=ipc",
+        "--socket=x11",
+        "--socket=pulseaudio",
+        "--socket=ssh-auth",
+        "--share=network",
+        "--device=all",
+        "--filesystem=host",
+        "--talk-name=org.freedesktop.Flatpak",
+        "--talk-name=org.freedesktop.Notifications",
+        "--talk-name=org.freedesktop.secrets",
+        "--talk-name=org.gtk.vfs",
+        "--talk-name=org.gtk.vfs.*",
+        "--env=ELECTRON_TRASH=this-is-a-workaround",
+        "--env=TMPDIR=/var/tmp",
+        "--filesystem=xdg-config/kdeglobals:ro",
+        "--talk-name=com.canonical.AppMenu.Registrar",
+        "--talk-name=com.canonical.AppMenu.Registrar.*"
+    ],
+    "add-extensions": {
+        "io.atom.Atom.Extension": {
+            "version": "20.08",
+            "directory": "extensions",
+            "add-ld-path": "lib",
+            "subdirectories": true,
+            "no-autodownload": true,
+            "autodelete": true
         }
-      ],
-      "modules": [
-        "shared-modules/libsecret/libsecret.json"
-      ]
     },
-    {
-      "name": "icons",
-      "buildsystem": "simple",
-      "build-commands": [
-        "cp -r ../icons /app/share/"
-      ],
-      "sources": [
-          {
-              "type": "archive",
-              "path": "icons.tar.xz",
-              "sha256": "ce2426a44b39118e31b293c2f4939e348743ab20fa53081f4895eac23d4d2dce"
-          }
-      ]
-    },
-    {
-        "name": "xprop",
-        "cleanup": ["/share/man"],
-        "sources": [
-            {
-                "type": "archive",
-                "url": "https://xorg.freedesktop.org/archive/individual/app/xprop-1.2.5.tar.bz2",
-                "sha256": "9b92ed0316bf2486121d8bac88bd1878f16b43bd335f18009b1f941f1eca93a1",
-                "x-checker-data": {
-                  "type": "anitya",
-                  "project-id": 14958,
-                  "url-template": "https://xorg.freedesktop.org/archive/individual/app/xprop-$version.tar.bz2"
+    "modules": [
+        {
+            "name": "atom",
+            "buildsystem": "simple",
+            "build-commands": [
+                "ar x atom-amd64.deb",
+                "tar -xf data.tar.xz",
+                "cp -r usr/* /app",
+                "mv /app/bin/atom /app/bin/atom-real",
+                "install atom /app/bin",
+                "mv /app/bin/apm /app/bin/apm-real",
+                "install apm /app/bin",
+                "desktop-file-edit --set-key=Exec --set-value='atom %F' /app/share/applications/atom.desktop",
+                "install -Dm644 io.atom.Atom.appdata.xml /app/share/appdata/io.atom.Atom.appdata.xml",
+                "install pip3 /app/bin",
+                "mkdir -p /app/extensions"
+            ],
+            "cleanup": [
+                "/share/lintian",
+                "/share/pixmaps"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "url": "https://atom-installer.github.com/v1.57.0/atom-amd64.deb?s=1620674304&ext=.deb",
+                    "sha256": "c418210ba30c270db33e7e19fbd83da32311dab0abe82dff1b174d49d596fdcb",
+                    "x-checker-data": {
+                        "type": "rotating-url",
+                        "url": "https://atom.io/download/deb",
+                        "pattern": "https://atom-installer.github.com/v([0-9.]+)/atom-amd64.deb"
+                    }
+                },
+                {
+                    "type": "file",
+                    "path": "io.atom.Atom.appdata.xml"
+                },
+                {
+                    "type": "script",
+                    "dest-filename": "atom",
+                    "commands": [
+                        "export ATOM_HOME=\"$XDG_DATA_HOME\"",
+                        "export PYTHONUSERBASE=\"$XDG_DATA_HOME/python\"",
+                        "export PATH=\"$XDG_DATA_HOME/python/bin:$PATH\"",
+                        "exec /app/bin/zypak-wrapper /app/bin/atom-real \"$@\""
+                    ]
+                },
+                {
+                    "type": "script",
+                    "dest-filename": "apm",
+                    "commands": [
+                        "export ATOM_HOME=\"$XDG_DATA_HOME\"",
+                        "export PYTHONUSERBASE=\"$XDG_DATA_HOME/python\"",
+                        "export PATH=\"$XDG_DATA_HOME/python/bin:$PATH\"",
+                        "exec /app/bin/apm-real \"$@\""
+                    ]
+                },
+                {
+                    "type": "script",
+                    "dest-filename": "pip3",
+                    "commands": [
+                        "export PYTHONUSERBASE=\"$XDG_DATA_HOME/python\"",
+                        "exec /usr/bin/pip3 \"$@\""
+                    ]
                 }
-            }
-        ]
-    },
-    {
-        "name": "zypak",
-        "sources": [
-            {
-                "type": "git",
-                "url": "https://github.com/refi64/zypak",
-                "tag": "v2020.02"
-            }
-        ]
-    }
-  ]
+            ],
+            "modules": [
+                "shared-modules/libsecret/libsecret.json"
+            ]
+        },
+        {
+            "name": "icons",
+            "buildsystem": "simple",
+            "build-commands": [
+                "cp -r ../icons /app/share/"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "path": "icons.tar.xz",
+                    "sha256": "ce2426a44b39118e31b293c2f4939e348743ab20fa53081f4895eac23d4d2dce"
+                }
+            ]
+        },
+        {
+            "name": "xprop",
+            "cleanup": [
+                "/share/man"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://xorg.freedesktop.org/archive/individual/app/xprop-1.2.5.tar.bz2",
+                    "sha256": "9b92ed0316bf2486121d8bac88bd1878f16b43bd335f18009b1f941f1eca93a1",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 14958,
+                        "url-template": "https://xorg.freedesktop.org/archive/individual/app/xprop-$version.tar.bz2"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "zypak",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/refi64/zypak",
+                    "tag": "v2020.02"
+                }
+            ]
+        }
+    ]
 }
