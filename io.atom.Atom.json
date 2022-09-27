@@ -2,9 +2,9 @@
     "app-id": "io.atom.Atom",
     "branch": "stable",
     "base": "org.electronjs.Electron2.BaseApp",
-    "base-version": "20.08",
+    "base-version": "22.08",
     "runtime": "org.freedesktop.Sdk",
-    "runtime-version": "20.08",
+    "runtime-version": "22.08",
     "sdk": "org.freedesktop.Sdk",
     "command": "atom",
     "rename-desktop-file": "atom.desktop",
@@ -31,7 +31,7 @@
     ],
     "add-extensions": {
         "io.atom.Atom.Extension": {
-            "version": "20.08",
+            "version": "22.08",
             "directory": "extensions",
             "add-ld-path": "lib",
             "subdirectories": true,
@@ -77,7 +77,7 @@
                         "export ATOM_HOME=\"$XDG_DATA_HOME\"",
                         "export PYTHONUSERBASE=\"$XDG_DATA_HOME/python\"",
                         "export PATH=\"$XDG_DATA_HOME/python/bin:$PATH\"",
-                        "exec /app/bin/zypak-wrapper /app/bin/atom-real \"$@\""
+                        "exec /app/bin/zypak-wrapper /app/share/atom/atom \"$@\""
                     ]
                 },
                 {
@@ -132,16 +132,6 @@
                         "project-id": 14958,
                         "url-template": "https://xorg.freedesktop.org/archive/individual/app/xprop-$version.tar.bz2"
                     }
-                }
-            ]
-        },
-        {
-            "name": "zypak",
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://github.com/refi64/zypak",
-                    "tag": "v2020.02"
                 }
             ]
         }
