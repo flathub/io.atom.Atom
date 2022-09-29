@@ -48,6 +48,7 @@
                 "tar -xf data.tar.xz",
                 "cp -r usr/* /app",
                 "mv /app/bin/atom /app/bin/atom-real",
+                "sed -i 's/\"$USR_DIRECTORY\/share\/atom\/atom\"/\"\/app\/bin\/zypak-wrapper $USR_DIRECTORY\/share\/atom\/atom --in-process-gpu\"/g' /app/bin/atom-real",
                 "install atom /app/bin",
                 "mv /app/bin/apm /app/bin/apm-real",
                 "install apm /app/bin",
@@ -77,7 +78,7 @@
                         "export ATOM_HOME=\"$XDG_DATA_HOME\"",
                         "export PYTHONUSERBASE=\"$XDG_DATA_HOME/python\"",
                         "export PATH=\"$XDG_DATA_HOME/python/bin:$PATH\"",
-                        "exec /app/bin/zypak-wrapper /app/share/atom/atom --in-process-gpu \"$@\""
+                        "exec /app/bin/atom-real \"$@\""
                     ]
                 },
                 {
