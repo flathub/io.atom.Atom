@@ -77,7 +77,7 @@
                         "export ATOM_HOME=\"$XDG_DATA_HOME\"",
                         "export PYTHONUSERBASE=\"$XDG_DATA_HOME/python\"",
                         "export PATH=\"$XDG_DATA_HOME/python/bin:$PATH\"",
-                        "exec /app/bin/zypak-wrapper /app/share/atom/atom \"$@\""
+                        "exec /app/bin/zypak-wrapper /app/share/atom/atom --in-process-gpu \"$@\""
                     ]
                 },
                 {
