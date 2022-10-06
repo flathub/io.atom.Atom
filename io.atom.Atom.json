@@ -21,7 +21,6 @@
         "--talk-name=org.freedesktop.Flatpak",
         "--talk-name=org.freedesktop.Notifications",
         "--talk-name=org.freedesktop.secrets",
-        "--talk-name=org.gtk.vfs",
         "--talk-name=org.gtk.vfs.*",
         "--env=ELECTRON_TRASH=this-is-a-workaround",
         "--env=TMPDIR=/var/tmp",
