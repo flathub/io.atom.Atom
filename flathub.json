@@ -1,3 +1,5 @@
 {
-  "only-arches": ["x86_64"]
+  "only-arches": ["x86_64"],
+  "end-of-life": "Atom has been sunset; Pulsar (dev.pulsar_edit.Pulsar) is a maintained community fork.",
+  "end-of-life-rebase": "dev.pulsar_edit.Pulsar"
 }
