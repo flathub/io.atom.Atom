@@ -47,7 +47,7 @@
                 "tar -xf data.tar.xz",
                 "cp -r usr/* /app",
                 "mv /app/bin/atom /app/bin/atom-real",
-                "sed -i 's@nohup \"$ATOM_PATH\"@nohup \/app\/bin\/zypak-wrapper \/app\/share\/atom\/atom --in-process-gpu@g' \/app\/bin\/atom-real",
+                "sed -i 's@nohup \"$ATOM_PATH\"@nohup /app/bin/zypak-wrapper /app/share/atom/atom --in-process-gpu@g' /app/bin/atom-real",
                 "install atom /app/bin",
                 "mv /app/bin/apm /app/bin/apm-real",
                 "install apm /app/bin",
@@ -125,8 +125,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://xorg.freedesktop.org/archive/individual/app/xprop-1.2.6.tar.xz",
-                    "sha256": "580b8525b12ecc0144aa16c88b0aafa76d2e799b44c8c6c50f9ce92788b5586e",
+                    "url": "https://xorg.freedesktop.org/archive/individual/app/xprop-1.2.7.tar.xz",
+                    "sha256": "4436e3148bb91a162406230d9f736a49ca8b50b74790015dc15d78d6ce8e825f",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 14958,
