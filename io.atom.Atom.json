@@ -1,6 +1,5 @@
 {
     "app-id": "io.atom.Atom",
-    "branch": "stable",
     "base": "org.electronjs.Electron2.BaseApp",
     "base-version": "22.08",
     "runtime": "org.freedesktop.Sdk",
